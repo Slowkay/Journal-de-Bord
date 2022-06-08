@@ -18,6 +18,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('posts.urls')),
+    path('admin/', admin.site.urls), #outes les URL commençant par admin/, Django trouvera une vue correspondante.
+    path('', include('posts.urls')), # Django va maintenant rediriger tout ce qui arrive sur "http://127.0.0.1:8000/" vers posts.urls puis regardera dans ce fichier pour y trouver la suite des instructions à suivre.
 ]

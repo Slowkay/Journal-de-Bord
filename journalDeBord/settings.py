@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Ajout de l'application à Django pour l'utiliser
     'posts.apps.PostsConfig',
 ]
 
