@@ -7,6 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <div>fqfs</div>
+    <div>
+        {% for post in posts %}
+            <article>
+                <H2><a href="">{{ post.title }}</a></H2>
+                <time>Création du poste : {{ post.created_date }}</time>            
+                <p>{{ post.text|linebreaksbr }}</p>
+                <br>
+            </article>
+        {% endfor %}
+    </div>
+    
 </body>
 </html>
