@@ -2,8 +2,14 @@
 
 {% block content %}
     <h2>New post</h2>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        {{ form.as_p }} 
+        <!-- 
+            csrf_token : (obligé pour form), sécurisation prévue par django
+            form : afficher les différents champs du fomulaire
+            as_p : pour afficher les champs du formulaire sous forme de paragraphe
+        -->
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 {% endblock %}
