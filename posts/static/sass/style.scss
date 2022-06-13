@@ -1,0 +1,80 @@
+/*
+style.scss
+---------
+
+By Robin Guesdon
+*/
+
+/*********************
+    Imports
+*********************/
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Raleway&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap');
+
+/*********************
+    Main colors RGBA
+*********************/
+$background: rgba(230,230,230, 1);
+$box: rgba(196,207,232, 1);
+$border: rgba(118,132,170, 1);
+$text: rgba(78,94,126, 1);
+$title: rgba(40,58,82, 1);
+
+/**********
+    Font
+***********/
+$primary-font: 'Quicksand', sans-serif;
+
+$font-weight: 450;
+
+/***********
+    Mixins
+************/
+
+
+/**********
+    Main
+***********/
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: $primary-font;
+    background-color: $background;
+}
+
+// Title at center
+h1{
+    text-align: center;
+}
+
+// Title and links decoration
+h1,
+a{
+    text-decoration: none; 
+    color: $title;
+    font-weight: 700;  
+}
+
+// Links' position
+.adders{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 350px;
+    padding-right: 350px;
+}
+
+// Links' decoration
+.adders > div{
+    background-color: $box;
+    border: solid 1px $border;
+    padding: 6px;
+    border-radius: 3px;
+}
+
+
+/*************
+    New File
+*************/
+.block{
+    margin-left: 200px;
+    margin-top: 30px;
+}
