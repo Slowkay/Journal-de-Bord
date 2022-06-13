@@ -8,6 +8,7 @@ class Post(models.Model): # Permet de définir le modèle
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
+    folder = models.ForeignKey("Folder", related_name="posts", null=True, blank=True, on_delete=models.CASCADE)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
@@ -17,3 +18,8 @@ class Post(models.Model): # Permet de définir le modèle
 
     def __str__(self):
         return self.title
+
+
+class Folder(models.Model):
+    name = models.CharField(max_length=200)
+    

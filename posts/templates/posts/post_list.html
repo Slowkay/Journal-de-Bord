@@ -11,15 +11,21 @@
     </head>
     <body> 
         {% block content %}  
-            {% for post in posts %}
-                <article class="post">
-                    <time class="date">
-                        {{ post.created_date }}
-                    </time>
-                    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-                    <p>{{ post.text|linebreaksbr }}</p>
-                </article>
-            {% endfor %}  
+        
+            {% if posts %}
+                {% for post in posts %}
+                    <article class="post">
+                        <time class="date">
+                            {{ post.created_date }}
+                        </time>
+                        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+                        <p>{{ post.text|linebreaksbr }}</p>
+                    </article>
+                {% endfor %}  
+            {% else %} 
+                <p>Aucun post ne correspond à votre recherche</p>
+            {% endif %} 
+
         {% endblock %}        
     </body>
 </html>

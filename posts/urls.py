@@ -13,8 +13,9 @@ Ex : <h1><a href="{% url 'post_list' %}">Django Girls Blog</a></h1>
 """
 
 urlpatterns = [
-    path('', views.post_list, name='post_list'), 
-    path('post/<int:pk>/', views.post_detail, name='post_detail'),
-    path('post/new/', views.post_new, name='post_new'),
-    path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
+    path('folder/<int:pk>', views.post_list, name='post_list'), 
+    path('', views.folder_list, name='folder_list'), 
+    path('folder/post/<int:pk>/', views.post_detail, name='post_detail'),
+    path('folder/post/new/', views.post_new, name='post_new'),
+    path('folder/post/<int:pk>/edit/', views.post_edit, name='post_edit'),
 ]
