@@ -1,14 +1,18 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Post
+from .models import Post, Folder
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm
 from django.shortcuts import redirect
 
 
-def post_list(request):
-    posts = Post.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
+def post_list(request, pk):
+    posts = Post.objects.filter(published_date__lte=timezone.now(), folder=pk).order_by('-published_date')
     return render(request, 'posts/post_list.html', {'posts' : posts})
+
+def folder_list(request):
+    folders = Folder.objects.all()
+    return render(request, 'posts/folder_list.html', {'folders' : folders})
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk) # Eviter d'afficher une page vide
@@ -40,3 +44,4 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'posts/post_edit.html', {'form': form})
+
