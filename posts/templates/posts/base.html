@@ -1,30 +1,57 @@
+<!-- Load of static folder -->
 {% load static %}
 <!DOCTYPE html>
 <html>
     <head>
-        <title>LogBook</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+        <title>Logbook</title>
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="{% static 'css/posts.css' %}">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
     </head>
     <body>
+        <!------------
+            HEADER 
+        -------------->
         <header class="page-header">
+
+            <!-- Title -->
             <div class="container">
-                {% if user.is_authenticated %}
-                    <a href="{% url 'post_new' %}" class="top-menu">
-                        {% include '../icons/file-earmark-plus.svg' %}
-                    </a>
-                {% endif %}
-                <h1><a href="{% url 'folder_list' %}">Django Girls Blog</a></h1>
+                <h1><a href="{% url 'folder_list' %}">Logbook</a></h1>
+<!-- A VOIR DIV CONTAINER -->
             </div>
-          </header>
-          <main class="container">
-              <div class="row">
-                  <div class="col">
-                    {% block content %}
-                    {% endblock %}
-                  </div>
-              </div>
-          </main>
+
+            <!-- Links for news folders / files -->
+            <div class="adders">
+                <div class="add-folder">
+                    <!-- Authentication check to display the new post icon -->
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'post_new' %}" class="top-menu">
+                            New folder {% include '../icons/folder.svg' %}
+                        </a>
+                    {% endif %}
+                </div>
+
+                <div class="add-file">
+                    <!-- Authentication check to display the new post icon -->
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'post_new' %}" class="top-menu">
+                            New file {% include '../icons/file-earmark-plus.svg' %}
+                        </a>
+                    {% endif %}
+                </div>   
+            </div>
+
+        </header>
+
+        <!-----------
+            MAIN 
+        ------------>
+        <main>
+            <div class="block">
+                <!-- List of post referring to the file 'post_list.html' -->
+                {% block content %}
+                {% endblock %}
+            </div>
+        </main>
+
     </body>
 </html>

@@ -1,0 +1,63 @@
+/*
+style.scss
+---------
+
+By Robin Guesdon
+*/
+/*********************
+    Imports
+*********************/
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Raleway&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap");
+/*********************
+    Main colors RGBA
+*********************/
+/**********
+    Font
+***********/
+/***********
+    Mixins
+************/
+/**********
+    Main
+***********/
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Quicksand", sans-serif;
+  background-color: rgb(230, 230, 230);
+}
+
+h1 {
+  text-align: center;
+}
+
+h1,
+a {
+  text-decoration: none;
+  color: rgb(40, 58, 82);
+  font-weight: 700;
+}
+
+.adders {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 350px;
+  padding-right: 350px;
+}
+
+.adders > div {
+  background-color: rgb(196, 207, 232);
+  border: solid 1px rgb(118, 132, 170);
+  padding: 6px;
+  border-radius: 3px;
+}
+
+/*************
+    New File
+*************/
+.block {
+  margin-left: 200px;
+  margin-top: 30px;
+}
+
+/*# sourceMappingURL=style.css.map */
