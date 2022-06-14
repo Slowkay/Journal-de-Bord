@@ -5,7 +5,7 @@
 <div class="add-folder">
     <!-- Authentication check to display the new post icon -->
     {% if user.is_authenticated %}
-        <a href="{# url 'folder_delete' pk=folder.pk #}" class="top-menu">
+        <a href="{% url 'folder_delete' folder.pk %}" class="top-menu">
             Delete folder {% include '../icons/folder.svg' %}
         </a>
     {% endif %}

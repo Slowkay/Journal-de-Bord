@@ -1,16 +1,17 @@
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
-# from django.urls import reverse_lazy
-# from django.views.generic.edit import DeleteView
+from django.urls import reverse_lazy
+from django.views.generic.edit import DeleteView
 
 from .models import Post, Folder
 from .forms import FolderForm, PostForm
 
 
 
-def post_list(request, pk):
-    posts = Post.objects.filter(published_date__lte=timezone.now(), folder=pk).order_by('-published_date')
-    return render(request, 'posts/post_list.html', {'posts' : posts})
+def post_list(request, folder_pk):
+    posts = Post.objects.filter(published_date__lte=timezone.now(), folder=folder_pk).order_by('-published_date')
+    folder = Folder.objects.get(pk=folder_pk)
+    return render(request, 'posts/post_list.html', {'posts' : posts, 'folder' : folder})
 
 def folder_list(request):
     folders = Folder.objects.all()
@@ -59,6 +60,6 @@ def post_edit(request, pk):
     return render(request, 'posts/post_edit.html', {'form': form})
 
 
-# class FolderDeleteView(DeleteView):
-#     model = Folder
-#     success_url = reverse_lazy('folder_list',)
+class FolderDeleteView(DeleteView):
+    model = Folder
+    success_url = reverse_lazy('folder_list',)
