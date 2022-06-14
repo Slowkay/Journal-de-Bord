@@ -24,17 +24,18 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: "Quicksand", sans-serif;
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(242, 241, 239);
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 40px;
 }
 
 h1,
 a {
   text-decoration: none;
-  color: rgb(40, 58, 82);
+  color: rgb(89, 75, 64);
   font-weight: 700;
 }
 
@@ -46,18 +47,27 @@ a {
 }
 
 .adders > div {
-  background-color: rgb(196, 207, 232);
-  border: solid 1px rgb(118, 132, 170);
+  background-color: rgb(191, 175, 162);
+  border: solid 1px rgb(140, 120, 103);
   padding: 6px;
   border-radius: 3px;
+  margin-bottom: 30px;
 }
 
 /*************
-    New File
+    New Post
 *************/
 .block {
   margin-left: 200px;
   margin-top: 30px;
+}
+
+/*************
+    PostList
+*************/
+.post {
+  margin-right: 150px;
+  margin-bottom: 60px;
 }
 
 /*# sourceMappingURL=style.css.map */

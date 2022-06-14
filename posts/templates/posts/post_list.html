@@ -1,31 +1,31 @@
 <!-- Use of 'base.html' -->
 {% extends 'posts/base.html' %}
-<!-- Load of static folder -->
-{% load static %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>LogBook</title>
-        <link rel="stylesheet" href="{% static 'style.css' %}">
-    </head>
-    <body> 
-        {% block content %}  
-        
-            {% if posts %}
-                {% for post in posts %}
-                    <article class="post">
-                        <time class="date">
-                            {{ post.created_date }}
-                        </time>
-                        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-                        <p>{{ post.text|linebreaksbr }}</p>
-                    </article>
-                {% endfor %}  
-            {% else %} 
-                <p>Aucun post ne correspond à votre recherche</p>
-            {% endif %} 
+{% block folder_actions %}
+<div class="add-folder">
+    <!-- Authentication check to display the new post icon -->
+    {% if user.is_authenticated %}
+        <a href="{# url 'folder_delete' pk=folder.pk #}" class="top-menu">
+            Delete folder {% include '../icons/folder.svg' %}
+        </a>
+    {% endif %}
+</div>
+{% endblock folder_actions %}
 
-        {% endblock %}        
-    </body>
-</html>
+{% block content %}  
+
+    {% if posts %}
+        {% for post in posts %}
+            <article class="post">
+                <time class="date">
+                    {{ post.created_date }}
+                </time>
+                <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </article>
+        {% endfor %}  
+    {% else %} 
+        <p>Aucun post ne correspond à votre recherche</p>
+    {% endif %} 
+
+{% endblock content %}        

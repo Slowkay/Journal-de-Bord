@@ -3,9 +3,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Logbook</title>
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="{% static 'style.css' %}">
+        {% block title %}
+            <title>Logbook</title>
+        {% endblock %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
     <body>
         <!------------
@@ -14,27 +15,26 @@
         <header class="page-header">
 
             <!-- Title -->
-            <div class="container">
-                <h1><a href="{% url 'folder_list' %}">Logbook</a></h1>
-<!-- A VOIR DIV CONTAINER -->
-            </div>
+            <h1><a href="{% url 'folder_list' %}">Logbook</a></h1>
 
             <!-- Links for news folders / files -->
             <div class="adders">
-                <div class="add-folder">
-                    <!-- Authentication check to display the new post icon -->
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'post_new' %}" class="top-menu">
-                            New folder {% include '../icons/folder.svg' %}
-                        </a>
-                    {% endif %}
-                </div>
+                {% block folder_actions %}
+                    <div class="add-folder">
+                        <!-- Authentication check to display the new post icon -->
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'folder_new' %}" class="top-menu">
+                                New folder {% include '../icons/folder.svg' %}
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endblock folder_actions %}
 
                 <div class="add-file">
                     <!-- Authentication check to display the new post icon -->
                     {% if user.is_authenticated %}
                         <a href="{% url 'post_new' %}" class="top-menu">
-                            New file {% include '../icons/file-earmark-plus.svg' %}
+                            New post {% include '../icons/file-earmark-plus.svg' %}
                         </a>
                     {% endif %}
                 </div>   
@@ -49,7 +49,7 @@
             <div class="block">
                 <!-- List of post referring to the file 'post_list.html' -->
                 {% block content %}
-                {% endblock %}
+                {% endblock content %}
             </div>
         </main>
 

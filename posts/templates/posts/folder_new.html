@@ -2,13 +2,9 @@
 {% extends 'posts/base.html' %}
 
 
-{% block title %}
-    <title>LogBook | Création post</title>
-{% endblock %}
-
 {% block content %}
-    <h2>New post</h2>
-    <form method="POST" class="post-form">        
+    <h2>New folder</h2>
+    <form method="POST" class="folder-form">        
         {% csrf_token %}
         {{ form.as_p }} 
         <!-- 

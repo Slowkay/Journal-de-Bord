@@ -1,9 +1,11 @@
-from django.shortcuts import render
 from django.utils import timezone
+from django.shortcuts import render, get_object_or_404, redirect
+# from django.urls import reverse_lazy
+# from django.views.generic.edit import DeleteView
+
 from .models import Post, Folder
-from django.shortcuts import render, get_object_or_404
-from .forms import PostForm
-from django.shortcuts import redirect
+from .forms import FolderForm, PostForm
+
 
 
 def post_list(request, pk):
@@ -17,6 +19,17 @@ def folder_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk) # Eviter d'afficher une page vide
     return render(request, 'posts/post_detail.html', {'post': post})
+
+def folder_new(request):
+    if request.method == "POST":
+        form = FolderForm(request.POST)
+        if form.is_valid():
+            folder = form.save(commit=False)
+            folder.save()
+            return redirect('folder_list')
+    else:
+        form = FolderForm()
+    return render(request, 'posts/folder_new.html', {'form': form})
 
 def post_new(request):
     if request.method == "POST":
@@ -45,3 +58,7 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'posts/post_edit.html', {'form': form})
 
+
+# class FolderDeleteView(DeleteView):
+#     model = Folder
+#     success_url = reverse_lazy('folder_list',)

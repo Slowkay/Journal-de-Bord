@@ -13,11 +13,13 @@ By Robin Guesdon
 /*********************
     Main colors RGBA
 *********************/
-$background: rgba(230,230,230, 1);
-$box: rgba(196,207,232, 1);
-$border: rgba(118,132,170, 1);
-$text: rgba(78,94,126, 1);
-$title: rgba(40,58,82, 1);
+$background: rgba(242,241,239, 1);
+$text: rgba(38,32,27, 1);
+$title: rgba(89,75,64, 1);
+$border: rgba(140,120,103, 1);
+$box: rgba(191,175,162, 1);
+
+
 
 /**********
     Font
@@ -44,6 +46,7 @@ body{
 // Title at center
 h1{
     text-align: center;
+    margin-bottom: 40px;
 }
 
 // Title and links decoration
@@ -68,13 +71,22 @@ a{
     border: solid 1px $border;
     padding: 6px;
     border-radius: 3px;
+    margin-bottom: 30px;
 }
 
 
 /*************
-    New File
+    New Post
 *************/
 .block{
     margin-left: 200px;
     margin-top: 30px;
+}
+
+/*************
+    PostList
+*************/
+.post{
+    margin-right: 150px;
+    margin-bottom: 60px;
 }
