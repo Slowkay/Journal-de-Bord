@@ -61,5 +61,6 @@ def post_edit(request, pk):
 
 
 class FolderDeleteView(DeleteView):
+    template_name = 'posts/folder_delete.html'
     model = Folder
     success_url = reverse_lazy('folder_list',)
