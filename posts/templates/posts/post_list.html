@@ -6,16 +6,17 @@
     <!-- Authentication check to display the new post icon -->
     {% if user.is_authenticated %}
         <a href="{% url 'folder_delete' pk=folder.pk %}" class="top-menu">
-            Delete folder {% include '../icons/folder.svg' %}
+            Delete folder
         </a>      
     {% endif %}
 </div>
 
 <div class="edit_folder">
-    <a href="{% url 'folder_new' %}" class="top-menu">
-        Edit folder {% include '../icons/folder.svg' %}
+    <a href="{% url 'folder_edit' pk=folder.pk %}">
+        Edit folder
     </a>
 </div>
+
 {% endblock folder_actions %}
 
 {% block content %}  
@@ -28,6 +29,7 @@
                 </time>
                 <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
                 <p>{{ post.text|linebreaksbr }}</p>
+
             </article>
         {% endfor %}  
     {% else %} 

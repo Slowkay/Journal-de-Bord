@@ -1,13 +1,8 @@
-<!-- Use of 'base.html' -->
 {% extends 'posts/base.html' %}
 
 
-{% block title %}
-    <title>LogBook | Création post</title>
-{% endblock title %}
-
-{% block content %}
-    <h2 class="titles">New post</h2>
+{% block content %}  
+    <h2 class="titles">Edition of the file</h2>
     <hr>
     <form method="POST" class="form">        
         {% csrf_token %}
@@ -19,4 +14,4 @@
         -->
         <button type="submit">Save</button>
     </form>
-{% endblock content %}
+{% endblock content %}    

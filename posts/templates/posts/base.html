@@ -1,7 +1,6 @@
 <!-- Load of static folder -->
 {% load static %}
 <!DOCTYPE html>
-<html>
     <head>
         {% block title %}
             <title>Logbook</title>
@@ -24,7 +23,7 @@
                         <!-- Authentication check to display the new post icon -->
                         {% if user.is_authenticated %}
                             <a href="{% url 'folder_new' %}" class="top-menu">
-                                New folder {% include '../icons/folder.svg' %}
+                                New folder
                             </a>
                         {% endif %}
                     </div>
@@ -34,7 +33,7 @@
                     <!-- Authentication check to display the new post icon -->
                     {% if user.is_authenticated %}
                         <a href="{% url 'post_new' %}" class="top-menu">
-                            New post {% include '../icons/file-earmark-plus.svg' %}
+                            New post
                         </a>
                     {% endif %}
                 </div>   
@@ -52,6 +51,6 @@
                 {% endblock content %}
             </div>
         </main>
-
+        <img class="img" src="../icons/GitHub/GitHub.png" alt="">
     </body>
 </html>

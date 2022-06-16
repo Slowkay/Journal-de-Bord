@@ -21,6 +21,19 @@ def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk) # Eviter d'afficher une page vide
     return render(request, 'posts/post_detail.html', {'post': post})
 
+
+def folder_edit(request, pk):
+    folder = get_object_or_404(Folder, pk=pk)
+    if request.method == "POST":
+        form = FolderForm(request.POST, instance=folder)
+        if form.is_valid():
+            folder = form.save(commit=False)
+            folder.save()
+            return redirect('folder_list')
+    else:
+        form = FolderForm(instance=folder)
+    return render(request, 'posts/folder_edit.html', {'form': form})
+
 def folder_new(request):
     if request.method == "POST":
         form = FolderForm(request.POST)

@@ -19,8 +19,6 @@ $title: rgba(89,75,64, 1);
 $border: rgba(140,120,103, 1);
 $box: rgba(191,175,162, 1);
 
-
-
 /**********
     Font
 ***********/
@@ -32,7 +30,6 @@ $font-weight: 450;
     Mixins
 ************/
 
-
 /**********
     Main
 ***********/
@@ -43,10 +40,17 @@ body{
     background-color: $background;
 }
 
+header{
+    padding-top: 10px;
+    background-color: $box;
+}
+
 // Title at center
 h1{
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    padding-top: 5px;
+    margin-top: 0px;
 }
 
 // Title and links decoration
@@ -67,13 +71,43 @@ a{
 
 // Links' decoration
 .adders > div{
-    background-color: $box;
+    background-color: $background;
     border: solid 1px $border;
-    padding: 6px;
+    padding: 5px;
     border-radius: 3px;
     margin-bottom: 30px;
 }
 
+
+// Effect under links of folder list 
+.folder_effect::after{
+    content: "";
+    display: block;
+    position: absolute;
+    border-bottom: solid 1.1px $border;
+    width: 50px;
+    height: 3px;
+    transform: scale(0);
+    transition: transform 0.3s ease-in-out;
+}
+.folder_effect:hover::after{
+    transform: scale(1);
+}
+
+/***************
+    Folder List
+****************/
+.titles{
+    color: $title;
+}
+
+hr{
+    border: 0;
+    height: 0;
+    border-top: 1px solid $box;
+    width: 770px;
+    margin-left: 0px;
+}
 
 /*************
     New Post
@@ -89,4 +123,12 @@ a{
 .post{
     margin-right: 150px;
     margin-bottom: 60px;
+}
+
+/*********
+    Form
+**********/
+
+.form{
+    margin-top: 25px;
 }

@@ -3,8 +3,9 @@
 
 
 {% block content %}
-    <h2>New folder</h2>
-    <form method="POST" class="folder-form">        
+    <h2 class="titles">New folder</h2>  
+    <hr>
+    <form method="POST" class="form">        
         {% csrf_token %}
         {{ form.as_p }} 
         <!-- 

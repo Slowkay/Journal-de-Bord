@@ -1,12 +1,12 @@
 {% extends 'posts/base.html' %}
 
 {% block content %}  
-
- <div>      
-    {% for folder in folders %}
-        <h3><a href="{% url 'post_list' folder_pk=folder.pk %}">{{ folder.name }}</a></h3>
-    {% endfor %} 
-</div>
-
+    <h2 class="titles">List of files</h2> 
+    <hr>
+    <div>   
+        {% for folder in folders %}
+            <h3><a class="folder_effect" href="{% url 'post_list' folder_pk=folder.pk %}">{{ folder.name }}</a></h3>
+        {% endfor %} 
+    </div>
 {% endblock content %}        
  
