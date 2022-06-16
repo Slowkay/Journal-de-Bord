@@ -1,48 +1,12 @@
 {% extends 'posts/base.html' %}
 
 {% block content %}  
-    <form action="" method="post">
-        <div>
-            <label for="">Action : </label>
-            <select name="action" required>
-                <option value selected>--------</option>
-                <option value="delete_selected">Delete folder</option>
-                <button type="submit">Envoyer</button>
-            </select>
-        </div>
 
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col">
-                            <span>
-                                <input type="checkbox" id="mycheckbox">
-                            </span>
-                        </th>
-                        <th scope="col">
-                            <span>
-                                Folder
-                            </span>
-                        </th>
-                    </tr>
-                </thead>
+ <div>      
+    {% for folder in folders %}
+        <h3><a href="{% url 'post_list' folder_pk=folder.pk %}">{{ folder.name }}</a></h3>
+    {% endfor %} 
+</div>
 
-                <tbody>
-                    {% for folder in folders %}
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="" id="">
-                            </td>
-                            <td>
-                                <h2><a href="{% url 'post_list' pk=folder.pk %}">{{ folder.name }}</a></h2>
-                            </td>
-                        </tr>
-                    {% endfor %} 
-                </tbody>
-            </table>
-        </div>
-
-    </form>
-{% endblock %}        
+{% endblock content %}        
  

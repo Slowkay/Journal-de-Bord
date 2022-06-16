@@ -7,8 +7,14 @@
     {% if user.is_authenticated %}
         <a href="{% url 'folder_delete' pk=folder.pk %}" class="top-menu">
             Delete folder {% include '../icons/folder.svg' %}
-        </a>
+        </a>      
     {% endif %}
+</div>
+
+<div class="edit_folder">
+    <a href="{% url 'folder_new' %}" class="top-menu">
+        Edit folder {% include '../icons/folder.svg' %}
+    </a>
 </div>
 {% endblock folder_actions %}
 
