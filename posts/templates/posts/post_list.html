@@ -2,26 +2,28 @@
 {% extends 'posts/base.html' %}
 
 {% block folder_actions %}
-<div class="add-folder">
-    <!-- Authentication check to display the new post icon -->
-    {% if user.is_authenticated %}
-        <a href="{% url 'folder_delete' pk=folder.pk %}" class="top-menu">
-            Delete folder
-        </a>      
-    {% endif %}
-</div>
+    <div class="add-folder">
+        <!-- Authentication check to display the new post icon -->
+        {% if user.is_authenticated %}
+            <a href="{% url 'folder_delete' pk=folder.pk %}" class="top-menu">
+                Delete folder
+            </a>      
+        {% endif %}
+    </div>
 
-<div class="edit_folder">
-    <a href="{% url 'folder_edit' pk=folder.pk %}">
-        Edit folder
-    </a>
-</div>
+    <div class="edit_folder">
+        <a href="{% url 'folder_edit' pk=folder.pk %}">
+            Edit folder
+        </a>
+    </div>
 
 {% endblock folder_actions %}
 
 {% block content %}  
 
     {% if posts %}
+        <h2 class="titles">List of posts</h2> 
+        <hr>
         {% for post in posts %}
             <article class="post">
                 <time class="date">
@@ -29,7 +31,6 @@
                 </time>
                 <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
                 <p>{{ post.text|linebreaksbr }}</p>
-
             </article>
         {% endfor %}  
     {% else %} 
