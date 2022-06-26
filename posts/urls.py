@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import FolderDeleteView
+from .views import FolderDeleteView, PostDeleteView
 
 """
 L11 : 'post/<int:pk>/edit/' : Partie de l'URL à laquelle renvoit cette view 
@@ -22,4 +22,5 @@ urlpatterns = [
     path('folder/<int:pk>/edit/', views.folder_edit, name='folder_edit'),  
     path('folder/post/<int:pk>/edit/', views.post_edit, name='post_edit'),
     path('folder/delete/<int:pk>/', FolderDeleteView.as_view(), name='folder_delete'),
+    path('folder/post/delete/<int:pk>/', PostDeleteView.as_view(), name='post_delete'),
 ]

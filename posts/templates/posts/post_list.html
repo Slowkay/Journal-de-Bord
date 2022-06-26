@@ -3,20 +3,16 @@
 
 {% block folder_actions %}
     <div class="add-folder">
-        <!-- Authentication check to display the new post icon -->
-        {% if user.is_authenticated %}
-            <a href="{% url 'folder_delete' pk=folder.pk %}" class="top-menu">
-                Delete folder
-            </a>      
-        {% endif %}
+        <a href="{% url 'folder_delete' pk=folder.pk %}">
+            Delete folder
+        </a>      
     </div>
 
-    <div class="edit_folder">
+    <div class="add-folder">
         <a href="{% url 'folder_edit' pk=folder.pk %}">
             Edit folder
         </a>
     </div>
-
 {% endblock folder_actions %}
 
 {% block content %}  

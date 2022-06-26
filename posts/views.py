@@ -21,7 +21,6 @@ def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk) # Eviter d'afficher une page vide
     return render(request, 'posts/post_detail.html', {'post': post})
 
-
 def folder_edit(request, pk):
     folder = get_object_or_404(Folder, pk=pk)
     if request.method == "POST":
@@ -77,3 +76,26 @@ class FolderDeleteView(DeleteView):
     template_name = 'posts/folder_delete.html'
     model = Folder
     success_url = reverse_lazy('folder_list',)
+    
+
+class PostDeleteView(DeleteView):
+    template_name = 'posts/post_delete.html'
+    model = Post
+
+    # cette fonction permet d'indiquer à la delete view dans quel liste d'objets
+    # il doit aller rechercher la clé primaire qui lui a été transmise dans l'URL
+    # http://127.0.0.1:8000/folder/post/delete/18/
+    # Ici, on indique qu'il faut aller chercher dans l'ensemble des objets de la table Post
+    # l'objet qui correspond à clé primaire 18.
+    # Cette fonction est utile si on a pas défini la variable Model(l.83)
+    # ou si on veut limiter la liste d'objets utlisée.
+    
+    # def get_queryset(self):
+    #     queryset = Post.objects.all()
+    #     return queryset
+    
+    def get_success_url(self):
+        pk_folder = int(self.object.folder.pk)
+        url = reverse_lazy("post_list", args=[pk_folder])
+        return url 
+    

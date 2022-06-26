@@ -2,7 +2,11 @@
 {% extends 'posts/base.html' %}
 
 {% block folder_actions %}
-    
+    <div class="add-folder">
+        <a href="{% url 'post_delete' pk=post.pk %}">
+            Delete post
+        </a>    
+    </div>
 {% endblock folder_actions %}
 
 {% block content %}

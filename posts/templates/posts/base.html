@@ -11,8 +11,12 @@
         <!------------
             HEADER 
         -------------->
+        <div class="logo">
+            <a href=""><img width="20" height="20" alt="GitHub Logomark" class="height-auto" src="{% static 'img/GitHub-Mark-32px.png' %}"></a>
+            <p>| By GUESDON Robin</p>
+        </div>
+        
         <header class="page-header">
-
             <!-- Title -->
             <h1><a href="{% url 'folder_list' %}">Logbook</a></h1>
 
@@ -20,25 +24,18 @@
             <div class="adders">
                 {% block folder_actions %}
                     <div class="add-folder">
-                        <!-- Authentication check to display the new post icon -->
-                        {% if user.is_authenticated %}
-                            <a href="{% url 'folder_new' %}" class="top-menu">
-                                New folder
-                            </a>    
-                        {% endif %}
+                        <a href="{% url 'folder_new' %}">
+                            New folder
+                        </a>    
                     </div>
                 {% endblock folder_actions %}
 
                 <div class="add-file">
-                    <!-- Authentication check to display the new post icon -->
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'post_new' %}" class="top-menu">
-                            New post
-                        </a>
-                    {% endif %}
+                    <a href="{% url 'post_new' %}">
+                        New post
+                    </a>
                 </div>   
             </div>
-
         </header>
 
         <!-----------
@@ -50,7 +47,9 @@
                 {% block content %}
                 {% endblock content %}
             </div>
-        </main>
-        <img class="img" src="../icons/GitHub/GitHub.png" alt="">
+        </main> 
+        <footer>
+            <p>dsfsdfsf</p>
+        </footer>
     </body>
 </html>

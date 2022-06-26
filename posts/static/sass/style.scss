@@ -45,6 +45,25 @@ header{
     background-color: $box;
 }
 
+.save_button{
+    background-color: $box;
+    border: solid 1px $border;
+    padding: 5px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+}
+
+//Logos
+.logo{
+    padding-left: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    a{
+        margin-right: 3px;
+    }
+}
+
 // Title at center
 h1{
     text-align: center;
@@ -64,9 +83,22 @@ a{
 // Links' position
 .adders{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    justify-content: center;
     padding-left: 350px;
     padding-right: 350px;
+    
+    .add-folder{
+        margin-right: 10px;
+    }
+
+    .add-post{
+        margin-left: 10px;
+    }
+}
+
+.edit-folder{
+    margin-right: 10px;
 }
 
 // Links' decoration
@@ -105,7 +137,7 @@ hr{
     border: 0;
     height: 0;
     border-top: 1px solid $box;
-    width: 770px;
+    width: 85%;
     margin-left: 0px;
 }
 
@@ -129,7 +161,44 @@ hr{
 /*********
     Form
 **********/
-
 .form{
     margin-top: 25px;
+}
+
+/***************
+    RESPONSIVE
+****************/
+@media only screen and (max-width: 1024px) {
+    .add-folder {
+        margin-right: 100px;
+    }
+    .add-post {
+        margin-left: 100px;
+    }
+    .adders{
+        white-space: nowrap;
+    }
+    hr{
+        width: 500px;
+    }
+  }
+
+  @media only screen and (max-width: 750px) {
+    // .add-folder {
+    //     margin-right: 70px;
+    // }
+    // .add-post {
+    //     margin-left: 70px;
+    // }
+    .adders{
+        white-space: nowrap;
+    }
+    hr{
+        width: 400px;
+    }
+  }
+
+footer{
+    position: absolute;
+    bottom: 0;
 }

@@ -32,6 +32,24 @@ header {
   background-color: rgb(191, 175, 162);
 }
 
+.save_button {
+  background-color: rgb(191, 175, 162);
+  border: solid 1px rgb(140, 120, 103);
+  padding: 5px;
+  border-radius: 3px;
+  margin-bottom: 30px;
+}
+
+.logo {
+  padding-left: 5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.logo a {
+  margin-right: 3px;
+}
+
 h1 {
   text-align: center;
   margin-bottom: 30px;
@@ -48,9 +66,16 @@ a {
 
 .adders {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  justify-content: center;
   padding-left: 350px;
   padding-right: 350px;
+}
+.adders .add-folder {
+  margin-right: 10px;
+}
+.adders .add-post {
+  margin-left: 10px;
 }
 
 .adders > div {
@@ -87,7 +112,7 @@ hr {
   border: 0;
   height: 0;
   border-top: 1px solid rgb(191, 175, 162);
-  width: 770px;
+  width: 85%;
   margin-left: 0px;
 }
 
@@ -113,6 +138,40 @@ hr {
 **********/
 .form {
   margin-top: 25px;
+}
+
+/***************
+    RESPONSIVE
+****************/
+@media only screen and (max-width: 1024px) {
+  .add-folder {
+    margin-right: 100px;
+  }
+
+  .add-post {
+    margin-left: 100px;
+  }
+
+  .adders {
+    white-space: nowrap;
+  }
+
+  hr {
+    width: 500px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .adders {
+    white-space: nowrap;
+  }
+
+  hr {
+    width: 400px;
+  }
+}
+footer {
+  position: absolute;
+  bottom: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
