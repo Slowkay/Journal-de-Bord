@@ -1,5 +1,9 @@
 {% extends 'posts/base.html' %}
 
+{% block title %}
+    <title>LogBook | Delete Folder</title>
+{% endblock %}
+
 {% block content %}  
     <form method="post">
         {% csrf_token %}

@@ -1,6 +1,10 @@
 <!-- Use of 'base.html' -->
 {% extends 'posts/base.html' %}
 
+{% block title %}
+    <title>LogBook | Post List</title>
+{% endblock title %}
+
 {% block folder_actions %}
     <div class="add-folder">
         <a href="{% url 'folder_delete' pk=folder.pk %}">
