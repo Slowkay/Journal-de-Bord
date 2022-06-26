@@ -78,6 +78,10 @@ a {
   margin-left: 10px;
 }
 
+.edit-folder {
+  margin-right: 10px;
+}
+
 .adders > div {
   background-color: rgb(242, 241, 239);
   border: solid 1px rgb(140, 120, 103);
@@ -172,6 +176,8 @@ hr {
 footer {
   position: absolute;
   bottom: 0;
+  background-color: rgb(191, 175, 162);
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
