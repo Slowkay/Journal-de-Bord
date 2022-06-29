@@ -184,12 +184,6 @@ hr{
   }
 
   @media only screen and (max-width: 750px) {
-    // .add-folder {
-    //     margin-right: 70px;
-    // }
-    // .add-post {
-    //     margin-left: 70px;
-    // }
     .adders{
         white-space: nowrap;
     }
@@ -203,4 +197,9 @@ footer{
     bottom: 0;
     background-color: $box;
     width: 100%;
+}
+
+center{
+    padding: 1rem;
+    font-size: small;
 }
